@@ -7,5 +7,5 @@ if ($usuario === "" || $pass === "") {
     // Convertimos el echo en formato JSON para poder procesarlo con fetch 
     echo json_encode("error");
 } else {
-    echo json_encode("Correcto <br>Usuario: " . $usuario . "<br>Pass: " . $pass);
+    echo json_encode("<br>Usuario: " . $usuario . "<br>Pass: " . $pass);
 }

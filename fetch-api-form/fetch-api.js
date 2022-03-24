@@ -19,13 +19,20 @@ $formulario.addEventListener("submit", (e) => {
     .then((data) => {
       console.log(data);
       if (data === "error") {
-        $respuesta.innerHTML = `
-        <div class="alert alert-danger" role="alert">Llena todos los campos</div>
-        `;
+        MostrarAlerta(
+          "Oh, paso algo inesperado!",
+          "Los campos no deben estar vacios",
+          "error"
+        );
       } else {
-        $respuesta.innerHTML = `
-        <div class="alert alert-primary" role="alert">${data}</div>
-        `;
+        // $respuesta.innerHTML = `
+        // <div class="alert alert-primary" role="alert">${data}</div>
+        // `;
+        MostrarAlerta("Muy bien!", data, "success");
       }
     });
 });
+
+function MostrarAlerta(titulo, descripcion, tipoAlerta) {
+  Swal.fire(titulo, descripcion, tipoAlerta);
+}
